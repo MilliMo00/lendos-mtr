@@ -50,3 +50,10 @@ document.querySelectorAll('#ifaceTabs button').forEach(btn => {
     document.getElementById(btn.dataset.pane).classList.add('on');
   });
 });
+
+// Clickable feature cards → scroll to their detail section
+document.querySelectorAll('.card--link[data-href]').forEach(card => {
+  const go = () => document.querySelector(card.dataset.href)?.scrollIntoView({ behavior: 'smooth' });
+  card.addEventListener('click', go);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+});
