@@ -11,6 +11,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12z"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M6 3v12.5M18 8.5c0 6-12 3-12 7"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z"/><path d="M19 17v4M17 19h4"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8" r="1.4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 3 3 7.5zM10 13.5 21 3"/></symbol>
+</svg>
 
 <!-- 1. NAVBAR -->
 <header class="nav" id="nav">
@@ -41,18 +53,17 @@
 <!-- 2. HERO -->
 <section class="hero">
   <div class="hero__glow"></div>
-  <div class="hero__arcs"><i></i><i></i></div>
   <div class="container">
-    <p class="kicker hero__kicker reveal">⚡ Платформа автоматизации нового уровня</p>
+    <p class="kicker hero__kicker reveal"><svg class="ic ic--fill"><use href="#i-bolt"/></svg><span class="kicker__text">Платформа автоматизации нового уровня</span></p>
   </div>
   <div class="container hero__inner">
     <div class="hero__content reveal">
-      <h1><span class="chrome">AI-платформа для <span class="accent">Telegram</span></span></h1>
+      <h1><span class="chrome"><span class="nowrap">AI-платформа</span> для <span class="accent">Telegram</span></span></h1>
       <span class="plaque plaque--y hero__plaque">АИ обработка + ведение контента в одном месте</span>
       <p class="lead">METRA AI заменяет контент-команду и обработчиков. Посты, расписание, воронки и CRM — всё в одном месте.</p>
       <div class="hero__cta">
         <a href="#pricing" class="btn btn--primary btn--lg">Начать бесплатно</a>
-        <a href="#interface" class="btn btn--ghost btn--lg"><span class="play">▶</span> Смотреть демо</a>
+        <a href="#interface" class="btn btn--ghost btn--lg"><svg class="ic ic--fill play"><use href="#i-play"/></svg> Смотреть демо</a>
       </div>
       <p class="hero__note">Без карты · Триал бесплатно · Запуск за 10 минут</p>
       <div class="stats">
@@ -150,9 +161,9 @@
             <path d="M50 6 V36"/><path d="M50 36 C50 52 24 52 24 68"/><path d="M50 36 C50 52 76 52 76 68"/>
           </svg>
           <div class="node node--start" style="left:50%;top:6%">Новый лид</div>
-          <div class="node node--ai" style="left:50%;top:36%">🤖 AI ответ</div>
+          <div class="node node--ai" style="left:50%;top:36%"><svg class="ic"><use href="#i-spark"/></svg>AI ответ</div>
           <div class="node node--cond" style="left:24%;top:68%">Тег: Тёплый</div>
-          <div class="node node--voice" style="left:76%;top:68%">🎙 Голосовое</div>
+          <div class="node node--voice" style="left:76%;top:68%"><svg class="ic"><use href="#i-mic"/></svg>Голосовое</div>
         </div>
       </article>
     </div>
@@ -188,7 +199,7 @@
           <span class="lstep__n">03</span>
           <h4>Запусти в один клик</h4>
           <p>Канал начинает постить сразу, без настройки с нуля</p>
-          <span class="launch__btn">▶ Запустить канал</span>
+          <span class="launch__btn"><svg class="ic ic--fill"><use href="#i-play"/></svg>Запустить канал</span>
         </div>
       </div>
       <div class="launch__note">
@@ -234,7 +245,7 @@
           <div class="post__photo">
             <span class="post__photo-tag">AI-фото</span>
           </div>
-          <p class="post__text" id="postText">Три года назад я сидел на кухне с последними 200$ на счёте. Сегодня расскажу, что изменилось и какую ошибку я больше никогда не повторю 👇</p>
+          <p class="post__text" id="postText">Три года назад я сидел на кухне с последними 200$ на счёте. Сегодня расскажу, что изменилось и какую ошибку я больше никогда не повторю</p>
           <div class="post__foot">
             <span class="fmt"><i class="on">Любительский</i><i>Обычный</i><i>Профи</i></span>
             <span class="post__status">● В расписании</span>
@@ -257,12 +268,12 @@
             <path d="M50 51 C50 64 22 62 22 76"/><path d="M50 51 C50 64 78 62 78 76"/>
             <path d="M22 76 V94"/>
           </svg>
-          <div class="node node--start" style="left:50%;top:5%">▶ Старт: /start</div>
-          <div class="node node--msg" style="left:50%;top:29%">💬 Приветствие</div>
-          <div class="node node--cond" style="left:50%;top:51%">⑂ Условие: ответил?</div>
-          <div class="node node--ai" style="left:22%;top:76%">🤖 AI ответ + 🎙</div>
-          <div class="node node--voice" style="left:78%;top:76%">⏱ Дожим через 2ч</div>
-          <div class="node node--tag" style="left:22%;top:94%">🏷 Тег → Тёплый</div>
+          <div class="node node--start" style="left:50%;top:5%"><svg class="ic ic--fill"><use href="#i-play"/></svg>Старт: /start</div>
+          <div class="node node--msg" style="left:50%;top:29%"><svg class="ic"><use href="#i-msg"/></svg>Приветствие</div>
+          <div class="node node--cond" style="left:50%;top:51%"><svg class="ic"><use href="#i-branch"/></svg>Условие: ответил?</div>
+          <div class="node node--ai" style="left:22%;top:76%"><svg class="ic"><use href="#i-spark"/></svg>AI ответ + голос</div>
+          <div class="node node--voice" style="left:78%;top:76%"><svg class="ic"><use href="#i-clock"/></svg>Дожим через 2ч</div>
+          <div class="node node--tag" style="left:22%;top:94%"><svg class="ic"><use href="#i-tag"/></svg>Тег → Тёплый</div>
         </div>
       </div>
     </div>
@@ -334,7 +345,7 @@
       <!-- Tab 1 -->
       <div class="pane on" id="p-plan">
         <div class="btabs">
-          <span class="btab on">📅 КП «Крипта RU» ×</span><span class="btab">📅 КП «Крипта EN» ×</span><span class="btab">📅 КП «Ротация B» ×</span><span class="btab btab--add">+</span>
+          <span class="btab on"><svg class="ic"><use href="#i-cal"/></svg>КП «Крипта RU» ×</span><span class="btab"><svg class="ic"><use href="#i-cal"/></svg>КП «Крипта EN» ×</span><span class="btab"><svg class="ic"><use href="#i-cal"/></svg>КП «Ротация B» ×</span><span class="btab btab--add">+</span>
         </div>
         <div class="week">
           <div class="week__col"><b>Пн</b><div class="slot"><small>09:00</small><i class="pt pt--story">История</i></div><div class="slot"><small>14:00</small><i class="pt pt--use">Польза</i></div><div class="slot"><small>20:00</small><i class="pt pt--offer">Оффер</i></div></div>
@@ -352,19 +363,19 @@
         <div class="flow-ed">
           <div class="flow-ed__palette">
             <small>Блоки</small>
-            <span>💬 Сообщение</span><span>⑂ Условие</span><span>🤖 AI ответ</span><span>🎙 Голос</span><span>🏷 Тег</span><span>⏱ Задержка</span>
+            <span><svg class="ic"><use href="#i-msg"/></svg>Сообщение</span><span><svg class="ic"><use href="#i-branch"/></svg>Условие</span><span><svg class="ic"><use href="#i-spark"/></svg>AI ответ</span><span><svg class="ic"><use href="#i-mic"/></svg>Голос</span><span><svg class="ic"><use href="#i-tag"/></svg>Тег</span><span><svg class="ic"><use href="#i-clock"/></svg>Задержка</span>
           </div>
           <div class="mock flow flow--xl">
             <svg class="flow__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path d="M9 50 H35"/><path d="M35 50 C49 50 49 26 63 26"/><path d="M35 50 C49 50 49 74 63 74"/>
               <path d="M63 26 H90"/><path d="M63 74 H90"/>
             </svg>
-            <div class="node node--start" style="left:9%;top:50%">▶ Старт</div>
-            <div class="node node--cond" style="left:35%;top:50%">⑂ Интерес?</div>
-            <div class="node node--ai" style="left:63%;top:26%">🤖 AI ответ</div>
-            <div class="node node--voice" style="left:63%;top:74%">⏱ Дожим 2ч</div>
-            <div class="node node--tag" style="left:90%;top:26%">🏷 Тёплый</div>
-            <div class="node node--msg" style="left:90%;top:74%">🎙 Голосовое</div>
+            <div class="node node--start" style="left:9%;top:50%"><svg class="ic ic--fill"><use href="#i-play"/></svg>Старт</div>
+            <div class="node node--cond" style="left:35%;top:50%"><svg class="ic"><use href="#i-branch"/></svg>Интерес?</div>
+            <div class="node node--ai" style="left:63%;top:26%"><svg class="ic"><use href="#i-spark"/></svg>AI ответ</div>
+            <div class="node node--voice" style="left:63%;top:74%"><svg class="ic"><use href="#i-clock"/></svg>Дожим 2ч</div>
+            <div class="node node--tag" style="left:90%;top:26%"><svg class="ic"><use href="#i-tag"/></svg>Тёплый</div>
+            <div class="node node--msg" style="left:90%;top:74%"><svg class="ic"><use href="#i-mic"/></svg>Голосовое</div>
           </div>
         </div>
       </div>
@@ -374,16 +385,16 @@
         <div class="crm">
           <div class="crm__list">
             <div class="crm__item on"><span class="avatar avatar--p">Д</span><div><b>Дмитрий</b><small>Ок, а как пополнить?</small></div><em class="t t--warm">Тёплый</em></div>
-            <div class="crm__item"><span class="avatar">М</span><div><b>Мария</b><small>🎙 Голосовое 0:14</small></div><em class="t t--new">Новый</em></div>
+            <div class="crm__item"><span class="avatar">М</span><div><b>Мария</b><small><svg class="ic"><use href="#i-mic"/></svg>Голосовое 0:14</small></div><em class="t t--new">Новый</em></div>
             <div class="crm__item"><span class="avatar avatar--p">S</span><div><b>Sergio</b><small>Done, deposit sent</small></div><em class="t t--dep">Депозит</em></div>
             <div class="crm__item"><span class="avatar">И</span><div><b>Игорь</b><small>Подумаю...</small></div><em class="t t--cold">Холодный</em></div>
           </div>
           <div class="crm__chat">
-            <div class="crm__chat-head"><b>Дмитрий</b><span class="t t--warm">Тёплый</span><span class="crm__ai">🤖 AI ведёт диалог</span></div>
+            <div class="crm__chat-head"><b>Дмитрий</b><span class="t t--warm">Тёплый</span><span class="crm__ai"><svg class="ic"><use href="#i-spark"/></svg>AI ведёт диалог</span></div>
             <div class="msg msg--in">Привет, увидел пост про сигналы. Это бесплатно?</div>
             <div class="msg msg--out">Привет, Дмитрий! Да, сигналы бесплатные для подписчиков. Скинуть, как начать за 5 минут?</div>
             <div class="msg msg--in">Ок, а как пополнить?</div>
-            <div class="msg msg--out msg--voice"><span>▶</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:21</small></div>
+            <div class="msg msg--out msg--voice"><span><svg class="ic ic--fill"><use href="#i-play"/></svg></span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:21</small></div>
           </div>
         </div>
       </div>
@@ -392,7 +403,7 @@
       <div class="pane" id="p-set">
         <div class="settings">
           <div class="field"><label>Вертикаль</label><div class="verticals"><span class="on">Крипта</span><span>Гемблинг</span><span>Беттинг</span><span>Финансы</span><span>Другое</span></div></div>
-          <div class="field"><label>Язык канала</label><div class="input">🇷🇺 Русский <small>зафиксирован</small></div></div>
+          <div class="field"><label>Язык канала</label><div class="input"><span class="lang">RU</span> Русский <small>зафиксирован</small></div></div>
           <div class="field"><label>Персонаж</label><div class="input">Алекс, 29 лет, трейдер из Москвы, уверенный и ироничный</div></div>
           <div class="field"><label>Стиль форматирования</label><div class="verticals"><span>Любительский</span><span class="on">Обычный</span><span>Профессиональный</span></div></div>
           <div class="field field--row"><label>Ротация контент-планов</label><span class="toggle on"></span></div>
@@ -485,7 +496,7 @@
     </div>
     <div class="footer__col">
       <h5>Поддержка</h5>
-      <a href="https://t.me/" class="tg">✈ Telegram поддержки</a>
+      <a href="https://t.me/" class="tg"><svg class="ic"><use href="#i-send"/></svg>Telegram поддержки</a>
     </div>
   </div>
   <div class="container footer__bottom">© 2026 METRA AI</div>

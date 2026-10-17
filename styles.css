@@ -43,7 +43,7 @@ h1, h2 { font-family: var(--font-h); font-weight: 700; text-transform: uppercase
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
 }
 .chrome { background-image: var(--chrome); }
-h1 { font-size: clamp(48px, 6.4vw, 92px); }
+h1 { font-size: clamp(44px, 5.4vw, 76px); }
 h2 { font-size: clamp(36px, 4.6vw, 62px); }
 h3, h4, h5 { font-family: var(--font-b); font-weight: 800; letter-spacing: -.01em; }
 h3 { font-size: clamp(22px, 2.2vw, 28px); }
@@ -78,7 +78,13 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 0 36px rgba(18,237,219,.5); }
 .btn--ghost { border-color: rgba(18,237,219,.3); background: rgba(8,19,28,.6); }
 .btn--ghost:hover { border-color: var(--accent); }
-.play { font-size: 11px; color: var(--accent); }
+.play { color: var(--accent); }
+.ic { width: 1.05em; height: 1.05em; flex: none; display: inline-block; vertical-align: -.17em; margin-right: .4em;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic--fill { fill: currentColor; stroke: none; }
+.btn .ic { margin-right: 0; }
+.nowrap { white-space: nowrap; }
+.lang { display: inline-block; padding: 1px 6px; margin-right: 6px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--surface-2); border: 1px solid var(--border); }
 
 /* ===== Navbar ===== */
 .nav {
@@ -147,8 +153,12 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 /* ===== Hero ===== */
 .hero { position: relative; padding: 80px 0 100px; overflow: hidden; }
 .hero__glow {
-  position: absolute; left: 50%; bottom: -320px; width: 1400px; height: 640px; transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba(18,237,219,.28), rgba(18,237,219,.06) 45%, transparent 70%);
+  position: absolute; left: 50%; bottom: -260px; width: 1800px; height: 720px; transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse 45% 55% at 50% 60%, rgba(18,237,219,.16), transparent 70%),
+    radial-gradient(ellipse 60% 70% at 30% 70%, rgba(42,168,255,.08), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 75% 70%, rgba(18,237,219,.07), transparent 70%);
+  filter: blur(20px);
   pointer-events: none;
 }
 .hero::before {
@@ -158,19 +168,17 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
   mask-image: radial-gradient(ellipse at 70% 40%, #000 10%, transparent 65%);
   -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 10%, transparent 65%);
 }
-.hero__arcs { position: absolute; inset: 0; pointer-events: none; }
-.hero__arcs i {
-  position: absolute; left: 50%; bottom: -170px; width: 1700px; height: 320px; transform: translateX(-50%);
-  border-radius: 50%; border: 2px solid rgba(18,237,219,.55);
-  box-shadow: 0 0 30px rgba(18,237,219,.45), inset 0 0 40px rgba(18,237,219,.2);
-}
-.hero__arcs i + i { bottom: -230px; width: 1250px; height: 300px; opacity: .45; }
 .hero__inner { position: relative; display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
 .hero__content h1 { margin: 0; }
 .hero__content .lead { margin-top: 28px; }
 .kicker { display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; font: 600 16px var(--font-h); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
 .hero__kicker { margin: 0 0 48px; }
-.hero__plaque { margin-top: 22px; line-height: 1.15; max-width: 100%; }
+.hero__kicker .ic { width: 18px; height: 18px; margin: 0; color: var(--accent); filter: drop-shadow(0 0 8px rgba(18,237,219,.6)); }
+.kicker__text {
+  background: linear-gradient(90deg, #FFFFFF 0%, #9FF8EF 40%, #12EDDB 70%, #59AEE8 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+.hero__plaque { margin-top: 24px; font-size: clamp(17px, 1.75vw, 24px); line-height: 1.2; max-width: 100%; text-wrap: balance; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .hero__note { margin-top: 16px; font-size: 14px; color: var(--muted); }
 .stats { display: flex; gap: 14px; margin-top: 40px; }
