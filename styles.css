@@ -50,7 +50,7 @@ h3 { font-size: clamp(22px, 2.2vw, 28px); }
 h4 { font-size: 19px; }
 p { margin: 0; }
 
-.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 clamp(24px, 4vw, 64px); }
 .accent { background-image: var(--neon); padding-inline: 0; text-shadow: none; }
 h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .plaque {
@@ -151,7 +151,7 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 }
 
 /* ===== Hero ===== */
-.hero { position: relative; padding: 80px 0 100px; overflow: hidden; }
+.hero { position: relative; padding: 0 0 100px; overflow: hidden; }
 .hero__glow {
   position: absolute; left: 50%; bottom: -260px; width: 1800px; height: 720px; transform: translateX(-50%);
   background:
@@ -172,13 +172,28 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .hero__content h1 { margin: 0; }
 .hero__content .lead { margin-top: 28px; }
 .kicker { display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; font: 600 16px var(--font-h); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
-.hero__kicker { margin: 0 0 48px; }
+/* notch hanging from the navbar, like the iPhone "чёлка" */
+.hero__notch-wrap { position: relative; z-index: 3; display: flex; justify-content: center; margin-bottom: 64px; }
+.hero__kicker {
+  position: relative; margin: 0; padding: 12px 34px 14px;
+  background: #02060B; border: 1px solid rgba(18,237,219,.28); border-top: 0;
+  border-radius: 0 0 26px 26px;
+  box-shadow: 0 12px 40px rgba(18,237,219,.14), inset 0 -1px 0 rgba(18,237,219,.15);
+}
+/* concave corners joining the notch to the navbar */
+.hero__kicker::before, .hero__kicker::after {
+  content: ""; position: absolute; top: 0; width: 20px; height: 20px;
+  background: radial-gradient(circle at 0 100%, transparent 19px, #02060B 20px);
+}
+.hero__kicker::before { left: -20px; background: radial-gradient(circle at 0 100%, transparent 19px, rgba(18,237,219,.28) 19.5px, #02060B 20.5px); }
+.hero__kicker::after { right: -20px; background: radial-gradient(circle at 100% 100%, transparent 19px, rgba(18,237,219,.28) 19.5px, #02060B 20.5px); }
 .hero__kicker .ic { width: 18px; height: 18px; margin: 0; color: var(--accent); filter: drop-shadow(0 0 8px rgba(18,237,219,.6)); }
 .kicker__text {
   background: linear-gradient(90deg, #FFFFFF 0%, #9FF8EF 40%, #12EDDB 70%, #59AEE8 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
 }
-.hero__plaque { margin-top: 24px; font-size: clamp(17px, 1.75vw, 24px); line-height: 1.2; max-width: 100%; text-wrap: balance; }
+.hero__plaque { margin-top: 24px; font-size: clamp(17px, 1.75vw, 24px); line-height: 1.2; white-space: nowrap; }
+.br-m { display: none; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .hero__note { margin-top: 16px; font-size: 14px; color: var(--muted); }
 .stats { display: flex; gap: 14px; margin-top: 40px; }
@@ -512,7 +527,11 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 @media (max-width: 600px) {
   .container { padding: 0 16px; }
   .section { padding: 72px 0; }
-  .hero { padding: 48px 0 64px; }
+  .hero { padding: 0 0 64px; }
+  .hero__notch-wrap { margin-bottom: 40px; }
+  .hero__kicker { padding: 10px 18px 12px; font-size: 12px; letter-spacing: .06em; }
+  .hero__plaque { white-space: normal; }
+  .br-m { display: inline; }
   .hero__cta .btn { flex: 1; }
   .stats { gap: 8px; }
   .stat { padding: 12px; }
