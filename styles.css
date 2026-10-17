@@ -148,6 +148,8 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
   font: 600 14px var(--font-h); color: #031512; background: var(--accent);
 }
 .avatar--p { background: var(--accent-2); color: #fff; }
+.avatar--logo { background: #02060B; border: 1px solid rgba(18,237,219,.5); box-shadow: 0 0 12px rgba(18,237,219,.25); }
+.avatar--logo .logo__mark { width: 20px; height: 15px; stroke: var(--accent); }
 
 /* reveal on scroll */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
@@ -370,27 +372,71 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 #ai-processing .glass { box-shadow: var(--glow-p), 0 30px 80px rgba(0,0,0,.35); }
 #posting .glass { box-shadow: var(--glow-c), 0 30px 80px rgba(0,0,0,.35); }
 
-.ptabs { display: flex; gap: 6px; padding: 14px; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; }
-.ptabs button { padding: 7px 12px; border-radius: 8px; font-size: 13px; border: 1px solid var(--border); background: transparent; color: var(--muted); white-space: nowrap; transition: all .2s; }
+/* post-type tabs: the active one is a notch that slides between tabs */
+.ptabs { position: relative; display: flex; gap: 2px; padding: 0 16px; border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+.ptabs::-webkit-scrollbar { display: none; }
+.ptabs button { position: relative; z-index: 1; padding: 15px 12px 18px; font-size: 14px; font-weight: 600; border: 0; background: none; color: var(--muted); white-space: nowrap; transition: color .3s; }
 .ptabs button:hover { color: var(--text); }
-.ptabs button.on { color: #7FFFF2; background: var(--teal-fill); border-color: rgba(18,237,219,.7); box-shadow: 0 0 14px rgba(18,237,219,.3); }
+.ptabs button.on { color: #7FFFF2; }
+.ptabs__notch {
+  --nb: #02060B; --nc: rgba(18,237,219,.45);
+  position: absolute; top: 0; left: 0; width: 0; height: calc(100% - 5px);
+  background: var(--nb); border: 1px solid var(--nc); border-top: 0; border-radius: 0 0 16px 16px;
+  box-shadow: 0 6px 18px rgba(18,237,219,.18);
+  transition: left .45s cubic-bezier(.6,0,.2,1), width .45s cubic-bezier(.6,0,.2,1);
+}
+.ptabs__notch::before, .ptabs__notch::after { content: ""; position: absolute; top: 0; width: 14px; height: 14px; }
+.ptabs__notch::before { left: -14px; background: radial-gradient(circle at 0 100%, transparent 13px, var(--nc) 13.5px, var(--nb) 14.5px); }
+.ptabs__notch::after { right: -14px; background: radial-gradient(circle at 100% 100%, transparent 13px, var(--nc) 13.5px, var(--nb) 14.5px); }
 .post { padding: 20px; }
 .post__head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
 .post__head small { display: block; color: var(--muted); font-size: 12px; }
 .post__time { margin-left: auto; font-size: 12px; color: var(--muted); }
 .post__photo {
-  position: relative; aspect-ratio: 16/8; border-radius: 12px; margin-bottom: 14px;
-  background:
-    radial-gradient(circle at 30% 70%, rgba(18,237,219,.35), transparent 40%),
+  --ph: radial-gradient(circle at 30% 70%, rgba(18,237,219,.35), transparent 40%),
     radial-gradient(circle at 75% 30%, rgba(163,92,255,.45), transparent 45%),
     linear-gradient(135deg, #12223A, #0A1222);
+  position: relative; aspect-ratio: 16/7; border-radius: 12px; margin-bottom: 16px;
+  background: var(--ph); background-size: cover; background-position: center;
 }
 .post__photo-tag { position: absolute; left: 10px; top: 10px; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 6px; background: rgba(7,13,26,.7); color: var(--accent); }
-.post__text { font-size: 15px; min-height: 72px; white-space: pre-line; transition: opacity .2s; }
-.post__foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.post__text { font-size: 14.5px; line-height: 1.55; }
+.post__text.swap { animation: postIn .22s ease; }
+@keyframes postIn { from { opacity: .35; } }
+/* desktop: post card takes exactly the height of the text column, content scrolls inside */
+@media (min-width: 1025px) {
+  #posting .split { align-items: stretch; }
+  #posting .split__text { align-self: center; padding: 24px 0; }
+  #posting .split__text h2 { margin-bottom: 44px; }
+  #posting .perks { gap: 30px; }
+  #posting .perks li { font-size: 17px; line-height: 1.6; }
+  #posting .ptabs { justify-content: space-between; overflow: visible; padding: 0 18px; }
+  #posting .ptabs button { padding-inline: 9px; font-size: 13.5px; }
+  #posting .split__visual { position: relative; }
+  #posting .post-mock { position: absolute; inset: 0; display: flex; flex-direction: column; }
+  #posting .post { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  /* fixed compact photo; the text area takes the rest — sized so the longest post fits without scrolling */
+  #posting .post__photo { flex: none; height: 145px; aspect-ratio: auto; }
+  #posting .post__text { flex: 1 1 0; min-height: 0; overflow: hidden; }
+}
+@media (min-width: 1025px) and (max-width: 1320px) {
+  #posting .ptabs { padding: 0 12px; }
+  #posting .ptabs button { font-size: 12px; padding-inline: 5px; }
+}
+.post__text p { margin: 0 0 .75em; }
+.post__text p:last-child { margin-bottom: 0; }
+.post__text b { font-weight: 700; color: #fff; }
+.post__text .hook { text-decoration: underline; text-underline-offset: 3px; }
+.post__text blockquote {
+  margin: 0 0 .75em; padding: 8px 14px; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
+  background: rgba(18,237,219,.07); color: #DDF7F4;
+}
+.post__foot { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); flex-wrap: wrap; }
 .fmt { display: flex; gap: 4px; }
-.fmt i { font-style: normal; font-size: 11px; padding: 4px 8px; border-radius: 6px; color: var(--muted); background: rgba(7,13,26,.6); }
-.fmt i.on { color: var(--text); background: var(--surface-2); }
+.fmt { padding: 3px; border-radius: 10px; background: rgba(2,6,11,.7); border: 1px solid var(--border); }
+.fmt button { font-size: 12px; font-weight: 600; padding: 6px 11px; border-radius: 7px; border: 0; background: none; color: var(--muted); transition: color .2s, background .2s; }
+.fmt button:hover { color: var(--text); }
+.fmt button.on { color: #7FFFF2; background: var(--teal-fill); box-shadow: inset 0 0 0 1px rgba(18,237,219,.5); }
 .post__status { font-size: 12px; color: var(--accent); }
 
 /* ===== How it works ===== */

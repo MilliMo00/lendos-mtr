@@ -210,10 +210,10 @@
 <section class="section" id="posting">
   <div class="container split">
     <div class="split__text reveal">
-      <span class="eyebrow">AI Постинг</span>
-      <h2><span class="chrome">Всё что нужно для <span class="accent">автоконтента</span></span></h2>
+      <span class="eyebrow">Возможности AI контента</span>
+      <h2><span class="chrome">Как устроен<br><span class="accent">АИ&nbsp;контент</span></span></h2>
       <ul class="perks">
-        <li><b>Посты в голосе персонажа</b> — AI пишет от лица твоего героя с его тоном и историей</li>
+        <li><b>Постинг по заданным настройкам</b> — AI пишет посты, используя лор и выбранный формат постов</li>
         <li><b>Реалистичные AI-фото</b> — загрузи референсы, получи живые фото в любых сценах</li>
         <li><b>7 типов постов</b> — История, Польза, Оффер, Дожим, Вовлечение, Сигнал, Доказательство</li>
         <li><b>3 стиля форматирования</b> — Любительский, Обычный, Профессиональный</li>
@@ -224,6 +224,7 @@
     <div class="split__visual reveal">
       <div class="glass post-mock">
         <div class="ptabs" role="tablist" id="postTabs">
+          <span class="ptabs__notch" id="postNotch" aria-hidden="true"></span>
           <button class="on" data-type="story">История</button>
           <button data-type="use">Польза</button>
           <button data-type="offer">Оффер</button>
@@ -234,17 +235,16 @@
         </div>
         <div class="post">
           <div class="post__head">
-            <span class="avatar">A</span>
-            <div><b>Алекс | Трейдинг</b><small>Персонаж · RU · Обычный стиль</small></div>
+            <span class="avatar avatar--logo"><svg class="logo__mark" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 21V11a6.5 6.5 0 0 1 13 0v10M16 11c0-3.6 2.9-6.5 6.5-6.5S29 7.4 29 11v10" /></svg></span>
+            <div><b>METRA AI | Автопостинг</b><small>Канал · RU · <span id="postStyleName">Обычный</span> стиль</small></div>
             <span class="post__time">сегодня, 12:00</span>
           </div>
-          <div class="post__photo">
+          <div class="post__photo" id="postPhoto">
             <span class="post__photo-tag">AI-фото</span>
           </div>
-          <p class="post__text" id="postText">Три года назад я сидел на кухне с последними 200$ на счёте. Сегодня расскажу, что изменилось и какую ошибку я больше никогда не повторю</p>
+          <div class="post__text" id="postText"></div>
           <div class="post__foot">
-            <span class="fmt"><i class="on">Любительский</i><i>Обычный</i><i>Профи</i></span>
-            <span class="post__status">● В расписании</span>
+            <span class="fmt" id="postFmt"><button data-style="amateur">Любительский</button><button class="on" data-style="normal">Обычный</button><button data-style="pro">Профи</button></span>
           </div>
         </div>
       </div>
