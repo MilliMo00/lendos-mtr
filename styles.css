@@ -1082,3 +1082,17 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 
 /* TRY-5: no Sign up / Log in tabs — switching happens via the link under the form */
 .auth-tabs { display: none; }
+
+/* TRY-6 (desktop sign-up): more air between blocks now that the tabs are gone; scales with screen height */
+@media (min-width: 961px) {
+  .auth-card:not(.is-login) .auth-title { margin-bottom: clamp(12px, 1.6vh, 20px); }
+  .auth-card:not(.is-login) .auth-hint { margin: clamp(-8px, -.6vh, -4px) 0 clamp(16px, 2.6vh, 30px); }
+  .auth-card:not(.is-login) .auth-or { margin: clamp(12px, 2.2vh, 26px) 0; }
+  .auth-card:not(.is-login) .auth-form { gap: clamp(10px, 1.6vh, 18px); }
+  .auth-card:not(.is-login) .role-x { gap: clamp(8px, 1.1vh, 12px); margin-bottom: clamp(2px, .8vh, 8px); }
+  .auth-card:not(.is-login) .field-x__box,
+  .auth-card:not(.is-login) .google-login,
+  .auth-card:not(.is-login) .role-x__opts span { height: clamp(40px, 5.6vh, 54px); }
+  .auth-card:not(.is-login) .auth-submit { height: clamp(46px, 6.2vh, 58px); margin-top: clamp(6px, 1.2vh, 14px); }
+  .auth-card:not(.is-login) .auth-switch { padding-top: clamp(12px, 2.2vh, 26px); }
+}
