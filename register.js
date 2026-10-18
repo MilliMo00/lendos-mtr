@@ -8,22 +8,26 @@ const AUTH = {
 const T = {
   ru: {
     tabSignup: 'Регистрация', tabLogin: 'Вход',
-    titleSignup: 'Создай аккаунт', titleLogin: 'С возвращением',
+    titleSignup: 'Создайте аккаунт', titleLogin: 'С возвращением',
+    hintSignup: 'Заполните данные ниже — займёт меньше минуты.',
+    hintLogin: 'Введите почту и пароль от своего аккаунта.',
     google: 'Продолжить с Google', or: 'или по почте', email: 'Email', password: 'Пароль', password2: 'Повторите пароль', nick: 'Никнейм',
     roleQ: 'Кто создаёт аккаунт?', roleOwner: 'Владелец', roleEmployee: 'Сотрудник',
     nickPh: 'Ваше имя', passPh: '8–72 символа: A-z, 0-9', passPhLogin: 'Ваш пароль', pass2Ph: 'Повторите пароль',
-    errNick: 'Введи никнейм', errPass2: 'Пароли не совпадают',
-    errEmail: 'Введи корректный email', errPass: '8–72 символа: только латиница и цифры', errTerms: 'Нужно принять условия',
+    errNick: 'Введите никнейм', errPass2: 'Пароли не совпадают',
+    errEmail: 'Введите корректный email', errPass: '8–72 символа: только латиница и цифры', errTerms: 'Нужно принять условия',
     terms: 'Принимаю <a href="#">условия использования</a> и <a href="#">политику конфиденциальности</a>',
     forgot: 'Забыли пароль?', remember: 'Запомнить меня', submitSignup: 'Создать аккаунт', submitLogin: 'Войти',
     switchToLoginQ: 'Уже есть аккаунт?', switchToLogin: 'Войти', switchToSignupQ: 'Нет аккаунта?', switchToSignup: 'Зарегистрироваться',
-    plaque: 'Триал бесплатно', bubble: 'Мы ждём<br>именно тебя', artTitle: 'Канал и лиды<br><span class="accent">на автопилоте</span>',
+    plaque: 'Триал бесплатно', bubble: 'Мы ждём<br><span class="hl-y">именно тебя</span>', artTitle: 'Канал и лиды<br><span class="accent">на автопилоте</span>',
     p1: 'AI пишет посты и публикует по расписанию', p2: 'Готовый контент-план под вертикаль', p3: 'AI ведёт диалоги с лидами голосом и текстом',
     showPass: 'Показать пароль', docSignup: 'Регистрация — METRA AI', docLogin: 'Вход — METRA AI',
   },
   en: {
     tabSignup: 'Sign up', tabLogin: 'Log in',
     titleSignup: 'Create your account', titleLogin: 'Welcome back',
+    hintSignup: 'Fill in the details below — it takes under a minute.',
+    hintLogin: 'Enter the email and password for your account.',
     google: 'Continue with Google', or: 'or with email', email: 'Email', password: 'Password', password2: 'Repeat password', nick: 'Nickname',
     roleQ: 'Who is creating the account?', roleOwner: 'Owner', roleEmployee: 'Employee',
     nickPh: 'Your name', passPh: '8–72 characters: A-z, 0-9', passPhLogin: 'Your password', pass2Ph: 'Repeat password',
@@ -32,7 +36,7 @@ const T = {
     terms: 'I accept the <a href="#">terms of use</a> and <a href="#">privacy policy</a>',
     forgot: 'Forgot password?', remember: 'Remember me', submitSignup: 'Create account', submitLogin: 'Log in',
     switchToLoginQ: 'Already have an account?', switchToLogin: 'Log in', switchToSignupQ: 'No account yet?', switchToSignup: 'Sign up',
-    plaque: 'Free trial', bubble: 'We’re waiting<br>for you', artTitle: 'Channels and leads<br><span class="accent">on autopilot</span>',
+    plaque: 'Free trial', bubble: 'We’re waiting<br><span class="hl-y">for you</span>', artTitle: 'Channels and leads<br><span class="accent">on autopilot</span>',
     p1: 'AI writes posts and publishes on schedule', p2: 'A ready content plan for your vertical', p3: 'AI talks to leads by voice and text',
     showPass: 'Show password', docSignup: 'Sign up — METRA AI', docLogin: 'Log in — METRA AI',
   },
@@ -46,11 +50,11 @@ const pill = $('.auth-tabs__pill');
 
 // keys that depend on the current tab
 const MODE_KEYS = {
-  title: ['titleSignup', 'titleLogin'], submit: ['submitSignup', 'submitLogin'],
+  title: ['titleSignup', 'titleLogin'], hint: ['hintSignup', 'hintLogin'], submit: ['submitSignup', 'submitLogin'],
   q: ['switchToLoginQ', 'switchToSignupQ'], sw: ['switchToLogin', 'switchToSignup'],
 };
 const modeEls = {
-  title: $('.auth-title .chrome'), submit: $('.auth-submit'),
+  title: $('.auth-title .chrome'), hint: $('.auth-hint'), submit: $('.auth-submit'),
   q: $('.auth-switch span'), sw: $('.auth-switch__btn'),
 };
 

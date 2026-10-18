@@ -1029,3 +1029,39 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
   .auth-switch, .auth-card.is-login .auth-switch { margin-top: 0; padding-top: 20px; font-size: 15px; }
   .auth-switch__btn { font-size: 15px; }
 }
+
+/* TRY: bigger mascot — drop the bullet list from the brand panel, mascot takes the freed space */
+.auth-art__list { display: none; }
+.auth-art { padding-bottom: 0; }
+.auth-art__stage { margin-top: 0; }
+.auth-art__who { right: 0; }
+.speech { right: 66%; top: 30%; }
+/* TRY-2: mascot even bigger — stage covers the lower 76% of the panel, text sits on top */
+.auth-art > :not(.auth-art__stage) { position: relative; z-index: 2; }
+.auth-art__stage { position: absolute; left: 0; right: 0; bottom: 0; height: 76%; flex: none; z-index: 1; }
+.speech { right: 64%; top: 34%; }
+.speech span.hl-y { color: var(--yellow); }
+
+/* TRY-3 (desktop): one continuous page split in half by a glowing line instead of two separate boxes */
+@media (min-width: 961px) {
+  .auth { max-width: none; height: 100%; padding: 0; gap: 0; grid-template-columns: 1fr 1fr; align-content: stretch; align-items: stretch; }
+  .auth__form-side { align-self: stretch; justify-content: center; padding: 48px clamp(24px, 4vw, 72px); }
+  .auth-card { background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; padding-left: 0; padding-right: 0; }
+  .auth__art-side { align-self: stretch; height: auto; }
+  .auth__art-side::before {
+    content: ""; position: absolute; left: 0; top: 8%; bottom: 8%; width: 1px; z-index: 3;
+    background: linear-gradient(180deg, transparent, rgba(18,237,219,.75) 30%, rgba(18,237,219,.75) 70%, transparent);
+    box-shadow: 0 0 18px rgba(18,237,219,.55);
+  }
+  .auth-art { border: 0; border-radius: 0; padding: clamp(56px, 9vh, 96px) clamp(32px, 4vw, 72px) 0;
+    background: radial-gradient(ellipse 70% 60% at 65% 90%, rgba(18,237,219,.2), transparent 70%); }
+  .auth-art__title { font-size: clamp(44px, 4.4vw, 72px); }
+  .auth-art__stage { height: 74%; }
+  .auth-art__who { right: 4%; }
+}
+
+/* small plain-text hint under the form title */
+.auth-hint { margin: -10px 0 18px; font: 400 14px/1.45 var(--font-b); color: var(--muted); text-wrap: balance; }
+.auth-card.is-login .auth-hint { margin: -16px 0 22px; }
+@media (max-height: 760px) { .auth-hint { font-size: 13px; margin: -6px 0 10px; } }
+@media (max-width: 960px) { .auth-hint, .auth-card.is-login .auth-hint { font-size: 14.5px; margin: -8px 0 18px; } }
