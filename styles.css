@@ -1079,3 +1079,6 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .auth-art > :not(.auth-art__bg):not(.auth-art__stage) { position: relative; z-index: 2; }
 .auth-art__stage { z-index: 1; }
 @media (max-width: 960px) { .auth-art__bg { display: none; } }
+
+/* TRY-5: no Sign up / Log in tabs — switching happens via the link under the form */
+.auth-tabs { display: none; }

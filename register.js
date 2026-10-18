@@ -21,7 +21,7 @@ const T = {
     switchToLoginQ: 'Уже есть аккаунт?', switchToLogin: 'Войти', switchToSignupQ: 'Нет аккаунта?', switchToSignup: 'Зарегистрироваться',
     plaque: 'Триал бесплатно', bubble: 'Мы ждём<br><span class="hl-y">именно тебя</span>', artTitle: 'Канал и лиды<br><span class="accent">на автопилоте</span>',
     p1: 'AI пишет посты и публикует по расписанию', p2: 'Готовый контент-план под вертикаль', p3: 'AI ведёт диалоги с лидами голосом и текстом',
-    showPass: 'Показать пароль', docSignup: 'Регистрация — METRA AI', docLogin: 'Вход — METRA AI',
+    showPass: 'Показать пароль', hidePass: 'Скрыть пароль', docSignup: 'Регистрация — METRA AI', docLogin: 'Вход — METRA AI',
   },
   en: {
     tabSignup: 'Sign up', tabLogin: 'Log in',
@@ -38,7 +38,7 @@ const T = {
     switchToLoginQ: 'Already have an account?', switchToLogin: 'Log in', switchToSignupQ: 'No account yet?', switchToSignup: 'Sign up',
     plaque: 'Free trial', bubble: 'We’re waiting<br><span class="hl-y">for you</span>', artTitle: 'Channels and leads<br><span class="accent">on autopilot</span>',
     p1: 'AI writes posts and publishes on schedule', p2: 'A ready content plan for your vertical', p3: 'AI talks to leads by voice and text',
-    showPass: 'Show password', docSignup: 'Sign up — METRA AI', docLogin: 'Log in — METRA AI',
+    showPass: 'Show password', hidePass: 'Hide password', docSignup: 'Sign up — METRA AI', docLogin: 'Log in — METRA AI',
   },
 };
 
@@ -67,7 +67,7 @@ function render() {
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
   Object.entries(modeEls).forEach(([k, el]) => { el.innerHTML = t[MODE_KEYS[k][i]]; });
-  document.querySelectorAll('.field-x__eye').forEach(b => b.setAttribute('aria-label', t.showPass));
+  document.querySelectorAll('.field-x__eye').forEach(b => b.setAttribute('aria-label', b.classList.contains('on') ? t.hidePass : t.showPass));
   document.querySelectorAll('[data-ph]').forEach(el => { el.placeholder = t[el.dataset.ph]; });
   form.password.placeholder = mode === 'login' ? t.passPhLogin : t.passPh;
   document.title = mode === 'login' ? t.docLogin : t.docSignup;
@@ -119,8 +119,12 @@ document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener
 // show / hide password
 document.querySelectorAll('.field-x__eye').forEach(btn => btn.addEventListener('click', e => {
   const input = btn.closest('.field-x__box').querySelector('input');
-  input.type = input.type === 'password' ? 'text' : 'password';
-  btn.classList.toggle('on', input.type === 'text');
+  const shown = input.type === 'password';
+  input.type = shown ? 'text' : 'password';
+  btn.classList.toggle('on', shown);
+  // open eye = password hidden (tap to show); crossed eye = password visible (tap to hide)
+  btn.querySelector('use').setAttribute('href', shown ? '#i-eye-off' : '#i-eye');
+  btn.setAttribute('aria-label', shown ? T[lang].hidePass : T[lang].showPass);
 }));
 
 // validation; on success the form is sent to the platform
