@@ -87,6 +87,7 @@ const card = $('.auth-card');
 function lockCardHeight() {
   const real = mode;
   card.style.minHeight = '';
+  if (matchMedia('(max-width: 960px)').matches) return; // phones scroll, no fixed card height
   if (real !== 'signup') { mode = 'signup'; render(); }
   const h = card.offsetHeight;
   if (real !== 'signup') { mode = real; render(); }

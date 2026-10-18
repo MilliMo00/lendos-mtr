@@ -978,3 +978,30 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 @media (max-height: 820px) { .auth-logo { height: 24px; margin-bottom: 14px; } }
 @media (max-height: 700px) { .auth-logo { height: 20px; margin-bottom: 10px; } }
 
+
+/* auth on phones/tablets: normal scrolling page with comfortable, full-size controls
+   (overrides the one-screen squeeze, which only makes sense on desktop) */
+@media (max-width: 960px) {
+  .auth-page { height: auto; min-height: 100vh; min-height: 100dvh; overflow: visible; }
+  .auth { align-content: start; padding-top: 72px; padding-bottom: 32px; }
+  .auth-logo { height: 28px; margin-bottom: 20px; }
+  .auth-card, .auth-card.is-login { padding: 24px 20px; min-height: 0 !important; }
+  .auth-tabs { margin-bottom: 20px; }
+  .auth-tabs button { padding: 13px 0; font-size: 15px; }
+  .auth-title, .auth-card.is-login .auth-title { font-size: 32px; margin: 0 0 18px; }
+  .auth-or, .auth-card.is-login .auth-or { margin: 18px 0; font-size: 14px; }
+  .auth-form, .auth-card.is-login .auth-form { gap: 14px; margin-bottom: 0; }
+  .field-x__box, .google-login, .role-x__opts span,
+  .auth-card.is-login .field-x__box, .auth-card.is-login .google-login { height: 54px; }
+  .field-x__box input { font-size: 16px; } /* 16px stops iOS from zooming into the field */
+  .google-login { font-size: 16px; }
+  .role-x { gap: 10px; }
+  .role-x__label { font-size: 14px; }
+  .role-x__opts span { font-size: 15.5px; }
+  .check-x { font-size: 14px; }
+  .check-x__box { width: 22px; height: 22px; }
+  .auth-forgot { font-size: 14px; }
+  .auth-submit { height: 56px; font-size: 16px; }
+  .auth-switch, .auth-card.is-login .auth-switch { margin-top: 0; padding-top: 20px; font-size: 15px; }
+  .auth-switch__btn { font-size: 15px; }
+}
