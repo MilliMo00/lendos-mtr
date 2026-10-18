@@ -2,6 +2,8 @@
 const I18N_EN = {
  "x0": "Watch demo",
  "x1": "Telegram support",
+ "x2": "METRA AI channel",
+ "x3": "Message a manager",
  "t0": "<b>40+ languages</b> — the language is locked in and kept in every post",
  "t1": "Features",
  "t2": "AI Content",
