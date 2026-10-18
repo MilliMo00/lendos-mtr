@@ -166,6 +166,29 @@ document.querySelectorAll('#postFmt button').forEach(btn => {
   });
 });
 window.addEventListener('resize', moveNotch);
+
+// mobile/tablet: reserve the height of the longest post so the card never jumps
+// (desktop has its own fixed-height card, so this only runs below 1025px)
+const mobilePost = matchMedia('(max-width: 1024px)');
+function lockPostHeight() {
+  postText.style.minHeight = '';
+  if (!mobilePost.matches) return;
+  const probe = postText.cloneNode(false);
+  probe.removeAttribute('id');
+  Object.assign(probe.style, { position: 'absolute', visibility: 'hidden', left: '0', top: '0', width: postText.clientWidth + 'px' });
+  postText.parentNode.appendChild(probe);
+  let max = 0;
+  for (const t of Object.keys(posts)) for (const s of Object.keys(styles)) {
+    probe.innerHTML = styles[s].render(posts[t]);
+    max = Math.max(max, probe.offsetHeight);
+  }
+  probe.remove();
+  postText.style.minHeight = max + 'px';
+}
+let lockTimer;
+window.addEventListener('resize', () => { clearTimeout(lockTimer); lockTimer = setTimeout(lockPostHeight, 150); });
+mobilePost.addEventListener('change', lockPostHeight);
+document.fonts?.ready.then(lockPostHeight);
 document.fonts?.ready.then(moveNotch);
 moveNotch();
 renderPost();

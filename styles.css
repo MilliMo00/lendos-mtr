@@ -672,8 +672,13 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
   .nav__links > a { padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 16px; }
   .nav__mobile-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
   .how { grid-template-columns: 1fr; gap: 40px; }
-  .how__line { top: 36px; bottom: 36px; left: 50%; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
-  .how__step { background: var(--bg); }
+  /* vertical steps: no full-height line behind text, short connector between steps instead */
+  .how__line { display: none; }
+  .how__step:not(:last-child)::after {
+    content: ""; display: block; width: 2px; height: 28px; margin: 22px auto 0; border-radius: 2px;
+    background: linear-gradient(180deg, rgba(18,237,219,.7), rgba(163,92,255,.5));
+  }
+  .how { gap: 22px; }
   .crm { grid-template-columns: 1fr; }
   .crm__list { border-right: 0; border-bottom: 1px solid var(--border); }
   .crm__item:nth-child(n+3) { display: none; }
@@ -702,8 +707,9 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
   .hero__visual { min-height: 560px; }
   .hero__mock { width: 100%; top: 0; }
   .hero__mascot { width: 240px; height: 360px; right: 0; top: auto; bottom: 0; padding-bottom: 24px; }
-  .proof__inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .proof__logos { gap: 14px 24px; justify-content: flex-start; }
+  .proof__inner { flex-direction: column; align-items: center; gap: 18px; }
+  .proof__label { font-size: 13px; letter-spacing: .04em; }
+  .proof__logos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; width: 100%; justify-items: center; align-items: center; }
   .wordmark { font-size: 18px; }
   .card, .lstep, .price { padding: 24px; }
   .card { padding-top: 88px; }
@@ -760,4 +766,4 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .proof__logos { align-items: center; }
 .partner { height: 30px; width: auto; opacity: .9; transition: opacity .2s, transform .2s; }
 .partner:hover { opacity: 1; transform: translateY(-1px); }
-@media (max-width: 600px) { .partner { height: 22px; } }
+@media (max-width: 600px) { .partner { height: auto; width: auto; max-height: 24px; max-width: 100%; } }
