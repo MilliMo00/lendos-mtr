@@ -132,6 +132,9 @@ function renderPost() {
   postStyleName.textContent = styles[postStyle].name;
 }
 
+// preload post photos so switching tabs doesn't flash
+Object.keys(posts).forEach(t => { const i = new Image(); i.src = `img/posts/${t}.jpg`; });
+
 function moveNotch() {
   const active = document.querySelector('#postTabs button.on');
   postNotch.style.left = active.offsetLeft + 'px';
