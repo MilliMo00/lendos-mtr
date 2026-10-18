@@ -1,7 +1,7 @@
 // Where sign-up / login buttons lead — set the real platform URLs here
 const LINKS = {
-  signup: 'https://app.metra.ai/register',
-  login:  'https://app.metra.ai/login',
+  signup: 'register.html#signup',
+  login:  'register.html#login',
 };
 document.querySelectorAll('[data-link]').forEach(a => { a.href = LINKS[a.dataset.link]; });
 
