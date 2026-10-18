@@ -808,12 +808,14 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 
 /* ===== Auth page (register.html) ===== */
 .auth-page { height: 100vh; height: 100dvh; overflow: hidden; display: flex; flex-direction: column; } /* one screen, no scrolling */
-.auth-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px clamp(16px, 4vw, 56px); }
+.auth-top { position: absolute; top: 0; right: 0; z-index: 5; display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 22px clamp(16px, 4vw, 56px); }
 .auth-top__right { display: flex; align-items: center; gap: 14px; }
 
-.auth { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(24px, 4vw, 64px); align-items: center;
-  width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px) clamp(16px, 3vh, 40px); }
-.auth__form-side { display: flex; justify-content: center; }
+.auth { flex: 1; min-height: 0; display: grid; align-content: center; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(24px, 4vw, 64px); align-items: center;
+  width: 100%; max-width: 1360px; margin: 0 auto; padding: clamp(56px, 8vh, 80px) clamp(16px, 4vw, 56px) clamp(16px, 4vh, 48px); }
+.auth__form-side { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-height: 0; align-self: end; }
+/* logo sits above the card, centred on it, with a soft glow */
+.auth-logo { height: 30px; width: auto; margin-bottom: 22px; filter: drop-shadow(0 0 18px rgba(18,237,219,.35)); }
 .auth-card {
   display: flex; flex-direction: column;
   width: 100%; max-width: 460px; padding: 32px; border-radius: 24px;
@@ -890,7 +892,8 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 [hidden] { display: none !important; }
 
 /* brand side */
-.auth__art-side { position: relative; align-self: stretch; display: flex; min-height: 0; max-height: 100%; }
+/* same height as the form card, bottoms aligned → both windows line up exactly */
+.auth__art-side { position: relative; align-self: end; display: flex; height: var(--card-h, auto); min-height: 0; }
 .auth-art { position: relative; flex: 1; min-height: 0; padding: 48px 40px 0; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column;
   background: radial-gradient(ellipse 70% 55% at 60% 85%, rgba(18,237,219,.22), transparent 70%), linear-gradient(160deg, rgba(10,27,37,.75), rgba(5,13,20,.6));
   border: 1px solid rgba(18,237,219,.2); }
@@ -971,3 +974,7 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .auth-card.is-login .auth-row { margin-top: 2px; }
 .auth-card.is-login .auth-submit { margin-top: 8px; }
 .auth-card.is-login .auth-switch { margin-top: 0; padding-top: 24px; }
+
+@media (max-height: 820px) { .auth-logo { height: 24px; margin-bottom: 14px; } }
+@media (max-height: 700px) { .auth-logo { height: 20px; margin-bottom: 10px; } }
+

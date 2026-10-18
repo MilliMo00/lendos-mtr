@@ -91,6 +91,8 @@ function lockCardHeight() {
   const h = card.offsetHeight;
   if (real !== 'signup') { mode = real; render(); }
   card.style.minHeight = h + 'px';
+  // brand panel on the right takes exactly the card's height
+  document.querySelector('.auth').style.setProperty('--card-h', h + 'px');
 }
 
 function setMode(next) {
