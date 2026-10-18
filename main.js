@@ -27,7 +27,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Post preview (section 6): 7 post types × 3 formatting styles
 // [[...]] marks the accent phrase; each style decides how to format it.
-const posts = {
+const postsRu = {
   story: {
     title: 'Как я потерял половину депозита за один вечер',
     lead: 'Три года назад я сидел на кухне с последними 200$ на счёте и думал, что [[рынок мне что-то должен]].',
@@ -93,6 +93,74 @@ const posts = {
   }
 };
 
+const postsEn = {
+  story: {
+    title: 'How I lost half my deposit in one evening',
+    lead: 'Three years ago I was sitting in my kitchen with my last $200 and thinking [[the market owed me something]].',
+    quote: 'The most expensive trade is the one you open on emotion.',
+    note: 'Today I will tell you what has changed since then.',
+    listTitle: 'What I learned:',
+    list: ['the stop goes in before entry, not after', 'two losses in a row — pause until tomorrow', 'a deposit is a tool, not a lottery ticket'],
+    outro: 'Tomorrow I will show you what my trading day looks like now.'
+  },
+  use: {
+    title: '3 risk management rules',
+    lead: 'Most people blow their deposit not because of bad entries but because of [[having no rules]].',
+    quote: 'Keeping money matters more than making it fast.',
+    note: 'These three rules saved my account.',
+    listTitle: 'The rules:',
+    list: ['no more than 2% of the deposit per trade', 'set the stop before entry', 'two losses in a row — pause until tomorrow'],
+    outro: 'Save this post so you do not lose it.'
+  },
+  offer: {
+    title: 'Opening access to my signals',
+    lead: 'All week long subscribers get [[free access]] to my signals.',
+    quote: 'The best time to start was yesterday. The next best is today.',
+    note: 'I will close the group as soon as it fills up.',
+    listTitle: 'What you get:',
+    list: ['3–5 signals a day', 'a breakdown of every trade', 'a chat for your questions'],
+    outro: 'Tap the button below while access is open.'
+  },
+  push: {
+    title: '3 hours left',
+    lead: 'Yesterday [[47 people]] already grabbed access to the signals.',
+    quote: 'While you are thinking, the market is already moving.',
+    note: 'Access closes tonight at midnight.',
+    listTitle: 'You are in time if you:',
+    list: ['want to trade with a plan, not at random', 'can spare 15 minutes a day'],
+    outro: 'The link is under this post — after midnight it is gone.'
+  },
+  engage: {
+    title: 'An honest question',
+    lead: 'What was [[your biggest loss]] on a single trade?',
+    quote: 'Showing mistakes is not shameful — repeating them is.',
+    note: 'I will break down the best stories in tomorrow’s post.',
+    listTitle: 'Tell me in the comments:',
+    list: ['the size of the loss', 'what went wrong', 'what you took from it'],
+    outro: 'The most honest answer gets a personal review.'
+  },
+  signal: {
+    title: 'BTC/USDT — LONG',
+    lead: 'Price held above 67,000 and [[volume is growing]].',
+    quote: 'We trade by the plan only.',
+    note: 'Risk — no more than 2% of the deposit.',
+    listTitle: 'Trade setup:',
+    list: ['entry: 67,250', 'target: 68,900', 'stop: 66,600'],
+    outro: 'Taking partial profit at the first target.'
+  },
+  proof: {
+    title: 'Subscriber results this week',
+    lead: 'Screenshots come in every day, and here are [[the strongest ones]].',
+    quote: '“First week ever closed in profit,” writes Dmitry.',
+    note: 'The numbers below are unedited.',
+    listTitle: 'Week results:',
+    list: ['+38% for Dmitry', '+21% for Maria', '+17% for Oleg'],
+    outro: 'Next time, this post could be about you.'
+  }
+};
+let lang = 'ru';
+const posts = () => (lang === 'en' ? postsEn : postsRu);
+
 const accent = (s, open, close) => s.replace(/\[\[(.+?)\]\]/g, `${open}$1${close}`);
 const plain = s => accent(s, '', '');
 const lowerFirst = s => s.charAt(0).toLowerCase() + s.slice(1);
@@ -100,19 +168,19 @@ const dashList = items => items.map(i => '— ' + i).join('<br>');
 
 const styles = {
   // живой текст: мало переносов, курсив+жирный на отдельных словах, одна цитата не в конце
-  amateur: { name: 'Любительский', render: p => `
+  amateur: { name: { ru: 'Любительский', en: 'Casual' }, render: p => `
     <p class="hook">${p.title}</p>
     <p>${accent(p.lead, '<b><i>', '</i></b>')} ${lowerFirst(p.note)}</p>
     <blockquote>${p.quote}</blockquote>
     <p>${lowerFirst(p.listTitle)}<br>${dashList(p.list)}<br>${p.outro}</p>` },
   // золотая середина: заголовок капсом, одно выделение в середине
-  normal: { name: 'Обычный', render: p => `
+  normal: { name: { ru: 'Обычный', en: 'Standard' }, render: p => `
     <p>${p.title.toUpperCase()}</p>
     <p>${accent(p.lead, '<b>', '</b>')} ${p.note}</p>
     <p>${p.listTitle}<br>${dashList(p.list)}</p>
     <p>${p.outro}</p>` },
   // проф: жирный заголовок, цитата + курсив по одному предложению, жирные подзаголовки списков и концовка
-  pro: { name: 'Профессиональный', render: p => `
+  pro: { name: { ru: 'Профессиональный', en: 'Professional' }, render: p => `
     <p><b>${p.title}</b></p>
     <p>${plain(p.lead)}</p>
     <blockquote>${p.quote}</blockquote>
@@ -123,24 +191,24 @@ const styles = {
 
 const postText = document.getElementById('postText');
 const postPhoto = document.getElementById('postPhoto');
-const postStyleName = document.getElementById('postStyleName');
+const postMeta = document.getElementById('postMeta');
 const postNotch = document.getElementById('postNotch');
 let postType = 'story', postStyle = 'normal';
 
 function renderPost() {
   // swap instantly, then a short fade-in (no overlap between old and new text)
-  postText.innerHTML = styles[postStyle].render(posts[postType]);
+  postText.innerHTML = styles[postStyle].render(posts()[postType]);
   postText.scrollTop = 0;
   postText.classList.remove('swap');
   void postText.offsetWidth;
   postText.classList.add('swap');
   // свои фото кладутся в img/posts/<тип>.jpg; если файла нет — остаётся градиент
   postPhoto.style.backgroundImage = `url("img/posts/${postType}.jpg"), var(--ph)`;
-  postStyleName.textContent = styles[postStyle].name;
+  postMeta.textContent = lang === 'en' ? `Channel · EN · ${styles[postStyle].name.en} style` : `Канал · RU · ${styles[postStyle].name.ru} стиль`;
 }
 
 // preload post photos so switching tabs doesn't flash
-Object.keys(posts).forEach(t => { const i = new Image(); i.src = `img/posts/${t}.jpg`; });
+Object.keys(postsRu).forEach(t => { const i = new Image(); i.src = `img/posts/${t}.jpg`; });
 
 function moveNotch() {
   const active = document.querySelector('#postTabs button.on');
@@ -178,8 +246,8 @@ function lockPostHeight() {
   Object.assign(probe.style, { position: 'absolute', visibility: 'hidden', left: '0', top: '0', width: postText.clientWidth + 'px' });
   postText.parentNode.appendChild(probe);
   let max = 0;
-  for (const t of Object.keys(posts)) for (const s of Object.keys(styles)) {
-    probe.innerHTML = styles[s].render(posts[t]);
+  for (const t of Object.keys(postsRu)) for (const s of Object.keys(styles)) {
+    probe.innerHTML = styles[s].render(posts()[t]);
     max = Math.max(max, probe.offsetHeight);
   }
   probe.remove();
@@ -210,3 +278,31 @@ document.querySelectorAll('.card--link[data-href]').forEach(card => {
   card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
 });
 
+
+// ===== Language switch (RU / EN) =====
+const i18nEls = [...document.querySelectorAll('[data-i18n]')].filter(el => !el.parentElement.closest('[data-i18n]'));
+i18nEls.forEach(el => { el.dataset.ru = el.innerHTML; });
+const i18nAttrs = ['alt', 'aria-label'].flatMap(attr =>
+  [...document.querySelectorAll(`[data-i18n-${attr}]`)].map(el => ({ el, attr, key: el.getAttribute(`data-i18n-${attr}`), ru: el.getAttribute(attr) })));
+const metaDesc = document.querySelector('meta[name="description"]');
+const ruMeta = { title: document.title, description: metaDesc.content };
+
+function setLang(next) {
+  lang = next === 'en' ? 'en' : 'ru';
+  document.documentElement.lang = lang;
+  i18nEls.forEach(el => { el.innerHTML = lang === 'en' ? I18N_EN[el.dataset.i18n] : el.dataset.ru; });
+  i18nAttrs.forEach(({ el, attr, key, ru }) => el.setAttribute(attr, lang === 'en' ? I18N_EN_ATTR[key] : ru));
+  document.title = lang === 'en' ? I18N_EN_META.title : ruMeta.title;
+  metaDesc.content = lang === 'en' ? I18N_EN_META.description : ruMeta.description;
+  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  try { localStorage.setItem('metra-lang', lang); } catch (e) {}
+  renderPost();
+  moveNotch();
+  lockPostHeight();
+}
+document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+let savedLang = null;
+try { savedLang = localStorage.getItem('metra-lang'); } catch (e) {}
+// first visit: Russian for Russian-language browsers, English for everyone else
+setLang(savedLang || ((navigator.language || 'ru').toLowerCase().startsWith('ru') ? 'ru' : 'en'));
