@@ -1,3 +1,10 @@
+// Where sign-up / login buttons lead — set the real platform URLs here
+const LINKS = {
+  signup: 'https://app.metra.ai/register',
+  login:  'https://app.metra.ai/login',
+};
+document.querySelectorAll('[data-link]').forEach(a => { a.href = LINKS[a.dataset.link]; });
+
 // Mobile menu
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
@@ -179,3 +186,4 @@ document.querySelectorAll('.card--link[data-href]').forEach(card => {
   card.addEventListener('click', go);
   card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
 });
+

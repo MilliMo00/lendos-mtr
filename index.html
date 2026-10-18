@@ -28,7 +28,7 @@
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a href="#top" class="logo" aria-label="METRA AI">
-      <svg class="logo__mark" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 21V11a6.5 6.5 0 0 1 13 0v10M16 11c0-3.6 2.9-6.5 6.5-6.5S29 7.4 29 11v10" /></svg><span class="logo__text">metra ai</span>
+      <img class="logo__img" src="img/logo.png" alt="metra ai" height="26">
     </a>
     <nav class="nav__links" id="navLinks">
       <a href="#features">Возможности</a>
@@ -36,12 +36,12 @@
       <a href="#ai-processing">AI Обработка</a>
       <a href="#pricing">Цены</a>
       <div class="nav__mobile-cta">
-        <a href="#" class="btn btn--ghost">Войти</a>
+        <a href="#" class="btn btn--ghost" data-link="login">Войти</a>
         <a href="#pricing" class="btn btn--primary">Начать бесплатно</a>
       </div>
     </nav>
     <div class="nav__cta">
-      <a href="#" class="btn btn--ghost btn--sm">Войти</a>
+      <a href="#" class="btn btn--ghost btn--sm" data-link="login">Войти</a>
       <a href="#pricing" class="btn btn--primary btn--sm">Начать бесплатно</a>
     </div>
     <button class="nav__burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
@@ -84,10 +84,10 @@
   <div class="container proof__inner">
     <span class="proof__label">Нам доверяют:</span>
     <div class="proof__logos">
-      <span class="wordmark">1win</span>
-      <span class="wordmark">Vavada</span>
-      <span class="wordmark">Olimp Trade</span>
-      <span class="wordmark">Pocket Option</span>
+      <img class="partner" src="img/partners/1win.png" alt="1win" width="173" height="66" loading="lazy" decoding="async">
+      <img class="partner" src="img/partners/vavada.png" alt="Vavada" width="357" height="56" loading="lazy" decoding="async">
+      <img class="partner" src="img/partners/olymptrade.png" alt="Olymptrade" width="446" height="58" loading="lazy" decoding="async">
+      <img class="partner" src="img/partners/pocketoption.png" alt="Pocket Option" width="437" height="63" loading="lazy" decoding="async">
     </div>
   </div>
   <div class="marquee" aria-hidden="true">
@@ -153,7 +153,7 @@
           <span class="lstep__n">03</span>
           <h4>Запусти в один клик</h4>
           <p>Канал начинает постить сразу, без настройки с нуля</p>
-          <span class="launch__btn"><svg class="ic ic--fill"><use href="#i-play"/></svg>Запустить канал</span>
+          <a href="#" class="launch__btn" data-link="signup"><svg class="ic ic--fill"><use href="#i-play"/></svg>Запустить канал</a>
         </div>
       </div>
       <p class="launch__note">* Готовый контент-план можно отредактировать под себя в любой момент или создать контент-план с нуля.</p>
@@ -211,7 +211,6 @@
   <div class="container split split--rev">
     <div class="split__visual reveal">
       <div class="glass">
-        <div class="mock-bar"><i></i><i></i><i></i><span>AI Конструктор · Воронка «Депозит»</span></div>
         <img class="shot" src="img/screens/funnel.jpg" alt="AI конструктор воронок" width="1950" height="1012" loading="lazy" decoding="async">
       </div>
     </div>
@@ -278,7 +277,6 @@
       <button data-pane="p-set">Настройки канала</button>
     </div>
     <div class="glass iface reveal">
-      <div class="mock-bar"><i></i><i></i><i></i><span>app.metra.ai</span></div>
 
       <!-- Tab 1 -->
       <div class="pane on" id="p-plan">
@@ -287,12 +285,18 @@
 
       <!-- Tab 2 -->
       <div class="pane" id="p-flow">
-        <img class="shot" src="img/screens/constructor.jpg" alt="AI конструктор" width="2400" height="1252" loading="lazy" decoding="async">
+        <img class="shot" src="img/screens/constructor.jpg" alt="AI конструктор" width="2400" height="1259" loading="lazy" decoding="async">
       </div>
 
       <!-- Tab 3 -->
       <div class="pane" id="p-crm">
-        <img class="shot" src="img/screens/crm.jpg" alt="CRM и диалоги" width="2400" height="1253" loading="lazy" decoding="async">
+        <div class="crm-shot">
+          <img class="shot" src="img/screens/crm.jpg" alt="CRM: список чатов с тегами" width="2400" height="1259" loading="lazy" decoding="async">
+          <figure class="phone">
+            <img src="img/screens/crm-phone.jpg" alt="CRM в Telegram mini app на телефоне" width="700" height="1283" loading="lazy" decoding="async">
+          </figure>
+          <span class="crm-shot__label">Telegram mini app</span>
+        </div>
       </div>
 
       <!-- Tab 4 -->
@@ -325,7 +329,7 @@
           <li>7 типов постов, 3 стиля</li><li>40+ языков</li>
           <li>Готовый КП под вертикаль</li><li>Запуск в один клик</li>
         </ul>
-        <a href="#" class="btn btn--primary btn--block">Подключить канал</a>
+        <a href="#" class="btn btn--primary btn--block" data-link="signup">Подключить канал</a>
       </article>
 
       <article class="card card--purple plan-card reveal">
@@ -340,7 +344,7 @@
           <li>CRM внутри платформы</li><li>Теги и статусы лидов</li>
           <li>Обработчики без передачи аккаунтов</li><li>Telegram mini app</li>
         </ul>
-        <a href="#" class="btn btn--ghost btn--block plan-card__btn-p">Подключить CRM</a>
+        <a href="#" class="btn btn--ghost btn--block plan-card__btn-p" data-link="signup">Подключить CRM</a>
       </article>
     </div>
 
@@ -355,13 +359,13 @@
 <!-- 11. FINAL CTA -->
 <section class="section final-section">
   <div class="container">
-    <div class="final reveal">
-      <div class="final__text">
+    <div class="final">
+      <div class="final__text reveal">
         <h2><span class="chrome">Запусти канал <span class="nowrap">и AI обработку</span><br><span class="accent nowrap">уже сегодня</span></span></h2>
         <p class="final__sub">Триал бесплатно · Без карты · За 10 минут</p>
-        <a href="#" class="btn btn--primary btn--lg">Начать бесплатно →</a>
+        <a href="#" class="btn btn--primary btn--lg" data-link="signup">Начать бесплатно →</a>
       </div>
-      <div class="mascot final__mascot">[ Маскот ]</div>
+      <img class="final__mascot" src="img/mascot-final.webp" alt="Маскот METRA AI приглашает начать" width="1000" height="1182" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -372,7 +376,7 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
-      <a href="#top" class="logo"><svg class="logo__mark" viewBox="0 0 34 24" aria-hidden="true"><path d="M3 21V11a6.5 6.5 0 0 1 13 0v10M16 11c0-3.6 2.9-6.5 6.5-6.5S29 7.4 29 11v10" /></svg><span class="logo__text">metra ai</span></a>
+      <a href="#top" class="logo"><img class="logo__img" src="img/logo.png" alt="metra ai" height="26"></a>
       <p>AI-платформа для автопостинга и обработки лидов в Telegram.</p>
     </div>
     <div class="footer__col">
