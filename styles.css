@@ -1096,3 +1096,6 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
   .auth-card:not(.is-login) .auth-submit { height: clamp(46px, 6.2vh, 58px); margin-top: clamp(6px, 1.2vh, 14px); }
   .auth-card:not(.is-login) .auth-switch { padding-top: clamp(12px, 2.2vh, 26px); }
 }
+
+/* shadow hugging the headline letters only (no size/layout change) */
+.auth-art__title { filter: drop-shadow(0 0 2px rgba(2,6,11,1)) drop-shadow(0 3px 10px rgba(2,6,11,.95)); }
