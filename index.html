@@ -73,34 +73,8 @@
       </div>
     </div>
 
-    <div class="hero__visual reveal">
-      <div class="glass hero__mock">
-        <div class="mock-bar"><i></i><i></i><i></i><span>app.metra.ai / dashboard</span></div>
-        <div class="hero__mock-body">
-          <div class="mini-side">
-            <span class="on"></span><span></span><span></span><span></span><span></span>
-          </div>
-          <div class="mini-main">
-            <div class="mini-row">
-              <div class="kpi"><small>Постов сегодня</small><b>48</b><em class="up">+12%</em></div>
-              <div class="kpi"><small>Лидов в работе</small><b>317</b><em class="up">+31%</em></div>
-            </div>
-            <div class="chart">
-              <svg viewBox="0 0 300 90" preserveAspectRatio="none">
-                <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12EDDB" stop-opacity=".35"/><stop offset="1" stop-color="#12EDDB" stop-opacity="0"/></linearGradient></defs>
-                <path d="M0 70 L30 62 L60 66 L90 48 L120 52 L150 36 L180 40 L210 24 L240 30 L270 14 L300 18 L300 90 L0 90 Z" fill="url(#cg)"/>
-                <path d="M0 70 L30 62 L60 66 L90 48 L120 52 L150 36 L180 40 L210 24 L240 30 L270 14 L300 18" stroke="#12EDDB" stroke-width="2" fill="none"/>
-              </svg>
-            </div>
-            <div class="mini-feed">
-              <div><span class="dot dot--c"></span>Пост «Сигнал» опубликован<small>12:00</small></div>
-              <div><span class="dot dot--c"></span>Лид → тег «Депозит»<small>12:04</small></div>
-              <div><span class="dot dot--c"></span>AI-фото сгенерировано<small>12:09</small></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mascot hero__mascot">[ Маскот ]</div>
+    <div class="hero__visual hero__visual--art reveal">
+      <img class="hero__art" src="img/hero.jpg" alt="Маскот METRA AI показывает на интерфейс платформы" width="2400" height="1792" decoding="async" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -138,33 +112,14 @@
         <div class="card__notch"><svg class="ic"><use href="#i-cal"/></svg><span>AI Постинг</span></div>
         <h3>Канал на полном автопилоте</h3>
         <p><span class="u">AI генерирует посты</span> по заданным параметрам, генерирует фото, публикует по расписанию. Ротация контент-планов, <span class="u">7 типов постов, 3 стиля</span> форматирования под любую нишу и под <span class="u">любую вертикаль</span>.</p>
-        <div class="mock plan">
-          <div class="btabs">
-            <span class="btab on">КП · Неделя 1</span><span class="btab">КП · Неделя 2</span><span class="btab">КП · Неделя 3</span><span class="btab btab--add">+</span>
-          </div>
-          <div class="plan__grid">
-            <div class="plan__day"><b>Пн</b><i class="pt pt--story">История</i><i class="pt pt--offer">Оффер</i></div>
-            <div class="plan__day"><b>Вт</b><i class="pt pt--use">Польза</i><i class="pt pt--signal">Сигнал</i></div>
-            <div class="plan__day"><b>Ср</b><i class="pt pt--engage">Вовлечение</i><i class="pt pt--proof">Доказат.</i></div>
-            <div class="plan__day"><b>Чт</b><i class="pt pt--signal">Сигнал</i><i class="pt pt--push">Дожим</i></div>
-            <div class="plan__day"><b>Пт</b><i class="pt pt--story">История</i><i class="pt pt--offer">Оффер</i></div>
-          </div>
-        </div>
+        <div class="mock shot-frame"><img class="shot" src="img/screens/autoposting.jpg" alt="Автопостинг и ротация контент-планов" width="2400" height="1190" loading="lazy" decoding="async"></div>
       </article>
 
       <article class="card card--purple card--link reveal" data-href="#ai-processing" role="link" tabindex="0" aria-label="CRM + AI Конструктор — подробнее">
         <div class="card__notch"><svg class="ic"><use href="#i-branch"/></svg><span>CRM + AI Конструктор</span></div>
         <h3>AI обрабатывает лидов вместо тебя</h3>
         <p>Подключи бота или личку — обрабатывай вручную или подключи <b class="hl hl--p">AI Конструктор</b>: AI сам ведёт диалог, отвечает <span class="u">голосом или текстом</span>, меняет теги и двигает лида по воронке.</p>
-        <div class="mock flow flow--sm">
-          <svg class="flow__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M50 6 V36"/><path d="M50 36 C50 52 24 52 24 68"/><path d="M50 36 C50 52 76 52 76 68"/>
-          </svg>
-          <div class="node node--start" style="left:50%;top:6%">Новый лид</div>
-          <div class="node node--ai" style="left:50%;top:36%"><svg class="ic"><use href="#i-spark"/></svg>AI ответ</div>
-          <div class="node node--cond" style="left:24%;top:68%">Тег: Тёплый</div>
-          <div class="node node--voice" style="left:76%;top:68%"><svg class="ic"><use href="#i-mic"/></svg>Голосовое</div>
-        </div>
+        <div class="mock shot-frame"><img class="shot" src="img/screens/funnel.jpg" alt="AI конструктор воронок" width="1950" height="1012" loading="lazy" decoding="async"></div>
       </article>
     </div>
   </div>
@@ -177,7 +132,7 @@
       <div class="launch__glow"></div>
       <div class="launch__head">
         <div>
-          <h2><span class="chrome">Готовый контент-план&nbsp;—<br><span class="accent"><span class="mark-word">сразу</span> после подключения&nbsp;канала</span></span></h2>
+          <h2><span class="chrome">Готовый <span class="nowrap">контент-план</span>&nbsp;—<br><span class="accent"><span class="mark-word">сразу</span> после подключения&nbsp;канала</span></span></h2>
           <span class="plaque plaque--y">Запуск за один клик</span>
         </div>
         <div class="mascot launch__mascot">[ Маскот ]</div>
@@ -258,19 +213,7 @@
     <div class="split__visual reveal">
       <div class="glass">
         <div class="mock-bar"><i></i><i></i><i></i><span>AI Конструктор · Воронка «Депозит»</span></div>
-        <div class="mock flow flow--lg">
-          <svg class="flow__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M50 5 V51"/>
-            <path d="M50 51 C50 64 22 62 22 76"/><path d="M50 51 C50 64 78 62 78 76"/>
-            <path d="M22 76 V94"/>
-          </svg>
-          <div class="node node--start" style="left:50%;top:5%"><svg class="ic ic--fill"><use href="#i-play"/></svg>Старт: /start</div>
-          <div class="node node--msg" style="left:50%;top:29%"><svg class="ic"><use href="#i-msg"/></svg>Приветствие</div>
-          <div class="node node--cond" style="left:50%;top:51%"><svg class="ic"><use href="#i-branch"/></svg>Условие: ответил?</div>
-          <div class="node node--ai" style="left:22%;top:76%"><svg class="ic"><use href="#i-spark"/></svg>AI ответ + голос</div>
-          <div class="node node--voice" style="left:78%;top:76%"><svg class="ic"><use href="#i-clock"/></svg>Дожим через 2ч</div>
-          <div class="node node--tag" style="left:22%;top:94%"><svg class="ic"><use href="#i-tag"/></svg>Тег → Тёплый</div>
-        </div>
+        <img class="shot" src="img/screens/funnel.jpg" alt="AI конструктор воронок" width="1950" height="1012" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="split__text reveal">
@@ -340,71 +283,22 @@
 
       <!-- Tab 1 -->
       <div class="pane on" id="p-plan">
-        <div class="btabs">
-          <span class="btab on"><svg class="ic"><use href="#i-cal"/></svg>КП «Крипта RU» ×</span><span class="btab"><svg class="ic"><use href="#i-cal"/></svg>КП «Крипта EN» ×</span><span class="btab"><svg class="ic"><use href="#i-cal"/></svg>КП «Ротация B» ×</span><span class="btab btab--add">+</span>
-        </div>
-        <div class="week">
-          <div class="week__col"><b>Пн</b><div class="slot"><small>09:00</small><i class="pt pt--story">История</i></div><div class="slot"><small>14:00</small><i class="pt pt--use">Польза</i></div><div class="slot"><small>20:00</small><i class="pt pt--offer">Оффер</i></div></div>
-          <div class="week__col"><b>Вт</b><div class="slot"><small>10:00</small><i class="pt pt--signal">Сигнал</i></div><div class="slot"><small>15:00</small><i class="pt pt--engage">Вовлечение</i></div><div class="slot"><small>21:00</small><i class="pt pt--push">Дожим</i></div></div>
-          <div class="week__col"><b>Ср</b><div class="slot"><small>09:00</small><i class="pt pt--proof">Доказательство</i></div><div class="slot"><small>13:00</small><i class="pt pt--signal">Сигнал</i></div><div class="slot"><small>19:00</small><i class="pt pt--story">История</i></div></div>
-          <div class="week__col"><b>Чт</b><div class="slot"><small>11:00</small><i class="pt pt--use">Польза</i></div><div class="slot"><small>16:00</small><i class="pt pt--offer">Оффер</i></div><div class="slot"><small>20:00</small><i class="pt pt--engage">Вовлечение</i></div></div>
-          <div class="week__col"><b>Пт</b><div class="slot"><small>09:00</small><i class="pt pt--signal">Сигнал</i></div><div class="slot"><small>14:00</small><i class="pt pt--proof">Доказательство</i></div><div class="slot"><small>20:00</small><i class="pt pt--push">Дожим</i></div></div>
-          <div class="week__col"><b>Сб</b><div class="slot"><small>12:00</small><i class="pt pt--story">История</i></div><div class="slot"><small>18:00</small><i class="pt pt--engage">Вовлечение</i></div></div>
-          <div class="week__col"><b>Вс</b><div class="slot"><small>12:00</small><i class="pt pt--use">Польза</i></div><div class="slot"><small>19:00</small><i class="pt pt--offer">Оффер</i></div></div>
-        </div>
+        <img class="shot" src="img/screens/content-plan.jpg" alt="Контент-план" width="2400" height="1359" loading="lazy" decoding="async">
       </div>
 
       <!-- Tab 2 -->
       <div class="pane" id="p-flow">
-        <div class="flow-ed">
-          <div class="flow-ed__palette">
-            <small>Блоки</small>
-            <span><svg class="ic"><use href="#i-msg"/></svg>Сообщение</span><span><svg class="ic"><use href="#i-branch"/></svg>Условие</span><span><svg class="ic"><use href="#i-spark"/></svg>AI ответ</span><span><svg class="ic"><use href="#i-mic"/></svg>Голос</span><span><svg class="ic"><use href="#i-tag"/></svg>Тег</span><span><svg class="ic"><use href="#i-clock"/></svg>Задержка</span>
-          </div>
-          <div class="mock flow flow--xl">
-            <svg class="flow__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M9 50 H35"/><path d="M35 50 C49 50 49 26 63 26"/><path d="M35 50 C49 50 49 74 63 74"/>
-              <path d="M63 26 H90"/><path d="M63 74 H90"/>
-            </svg>
-            <div class="node node--start" style="left:9%;top:50%"><svg class="ic ic--fill"><use href="#i-play"/></svg>Старт</div>
-            <div class="node node--cond" style="left:35%;top:50%"><svg class="ic"><use href="#i-branch"/></svg>Интерес?</div>
-            <div class="node node--ai" style="left:63%;top:26%"><svg class="ic"><use href="#i-spark"/></svg>AI ответ</div>
-            <div class="node node--voice" style="left:63%;top:74%"><svg class="ic"><use href="#i-clock"/></svg>Дожим 2ч</div>
-            <div class="node node--tag" style="left:90%;top:26%"><svg class="ic"><use href="#i-tag"/></svg>Тёплый</div>
-            <div class="node node--msg" style="left:90%;top:74%"><svg class="ic"><use href="#i-mic"/></svg>Голосовое</div>
-          </div>
-        </div>
+        <img class="shot" src="img/screens/constructor.jpg" alt="AI конструктор" width="2400" height="1252" loading="lazy" decoding="async">
       </div>
 
       <!-- Tab 3 -->
       <div class="pane" id="p-crm">
-        <div class="crm">
-          <div class="crm__list">
-            <div class="crm__item on"><span class="avatar avatar--p">Д</span><div><b>Дмитрий</b><small>Ок, а как пополнить?</small></div><em class="t t--warm">Тёплый</em></div>
-            <div class="crm__item"><span class="avatar">М</span><div><b>Мария</b><small><svg class="ic"><use href="#i-mic"/></svg>Голосовое 0:14</small></div><em class="t t--new">Новый</em></div>
-            <div class="crm__item"><span class="avatar avatar--p">S</span><div><b>Sergio</b><small>Done, deposit sent</small></div><em class="t t--dep">Депозит</em></div>
-            <div class="crm__item"><span class="avatar">И</span><div><b>Игорь</b><small>Подумаю...</small></div><em class="t t--cold">Холодный</em></div>
-          </div>
-          <div class="crm__chat">
-            <div class="crm__chat-head"><b>Дмитрий</b><span class="t t--warm">Тёплый</span><span class="crm__ai"><svg class="ic"><use href="#i-spark"/></svg>AI ведёт диалог</span></div>
-            <div class="msg msg--in">Привет, увидел пост про сигналы. Это бесплатно?</div>
-            <div class="msg msg--out">Привет, Дмитрий! Да, сигналы бесплатные для подписчиков. Скинуть, как начать за 5 минут?</div>
-            <div class="msg msg--in">Ок, а как пополнить?</div>
-            <div class="msg msg--out msg--voice"><span><svg class="ic ic--fill"><use href="#i-play"/></svg></span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:21</small></div>
-          </div>
-        </div>
+        <img class="shot" src="img/screens/crm.jpg" alt="CRM и диалоги" width="2400" height="1253" loading="lazy" decoding="async">
       </div>
 
       <!-- Tab 4 -->
       <div class="pane" id="p-set">
-        <div class="settings">
-          <div class="field"><label>Вертикаль</label><div class="verticals"><span class="on">Крипта</span><span>Гемблинг</span><span>Беттинг</span><span>Финансы</span><span>Другое</span></div></div>
-          <div class="field"><label>Язык канала</label><div class="input"><span class="lang">RU</span> Русский <small>зафиксирован</small></div></div>
-          <div class="field"><label>Персонаж</label><div class="input">Алекс, 29 лет, трейдер из Москвы, уверенный и ироничный</div></div>
-          <div class="field"><label>Стиль форматирования</label><div class="verticals"><span>Любительский</span><span class="on">Обычный</span><span>Профессиональный</span></div></div>
-          <div class="field field--row"><label>Ротация контент-планов</label><span class="toggle on"></span></div>
-          <div class="field field--row"><label>Генерация AI-фото</label><span class="toggle on"></span></div>
-        </div>
+        <img class="shot" src="img/screens/settings.jpg" alt="Настройки канала" width="2400" height="1516" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
