@@ -902,7 +902,30 @@ h1 .accent, h2 .accent { filter: drop-shadow(0 0 16px rgba(18,237,219,.35)); }
 .auth-art__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
 .auth-art__list li { position: relative; padding-left: 28px; color: #C6D3DE; font-size: 15.5px; }
 .auth-art__list li::before { content: "✦"; position: absolute; left: 0; color: var(--accent); text-shadow: 0 0 12px var(--accent); }
-.auth-art__mascot { flex: 1; min-height: 260px; margin: 28px auto 0; width: min(78%, 420px); border-bottom: 0; border-radius: 20px 20px 0 0; }
+/* mascot fills the rest of the panel, stands at the bottom and points left at the form */
+.auth-art__stage { position: relative; flex: 1 1 0; min-height: 0; margin-top: 8px; }
+.auth-art__who { position: absolute; right: 6%; bottom: 0; height: 100%; aspect-ratio: 1100 / 1263; }
+.auth-art__mascot { display: block; width: 100%; height: 100%;
+  -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 85%, transparent 100%); }
+/* speech bubble coming from the rabbit's mouth */
+.speech {
+  position: absolute; right: 70%; top: 28%; white-space: nowrap;
+  padding: .75em 1.15em .65em; border-radius: 20px 20px 6px 20px;
+  font: 700 clamp(17px, 1.7vw, 28px)/1.05 var(--font-h); text-transform: uppercase; letter-spacing: .02em; text-align: center;
+  color: #fff; background: linear-gradient(180deg, rgba(14,40,50,.92), rgba(6,20,28,.92));
+  border: 1px solid rgba(18,237,219,.55);
+  box-shadow: 0 0 26px rgba(18,237,219,.25), 0 10px 30px rgba(0,0,0,.4);
+  animation: speechIn .6s cubic-bezier(.2,.9,.3,1.3) .3s both, speechFloat 4s ease-in-out 1s infinite;
+}
+.speech::after {
+  content: ""; position: absolute; right: -10px; bottom: 12px; width: 18px; height: 18px;
+  background: rgba(6,22,30,.95); border-right: 1px solid rgba(18,237,219,.55); border-bottom: 1px solid rgba(18,237,219,.55);
+  transform: rotate(-45deg) skew(10deg, 10deg); border-radius: 0 0 4px 0;
+}
+@keyframes speechIn { from { opacity: 0; transform: translateY(8px) scale(.85); } }
+@keyframes speechFloat { 50% { transform: translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .speech { animation: none; } }
 
 @media (max-width: 960px) {
   .auth { grid-template-columns: 1fr; }
